@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#030816">
+  <title>All In Digital Solutions | Diseño y Desarrollo Web Profesional</title>
+  <meta name="description" content="Diseñamos páginas web profesionales, modernas y adaptadas a las necesidades de cada negocio. Web desde US$100. Mantenimiento desde US$30 mensuales.">
+  <meta property="og:title" content="All In Digital Solutions | Diseño y Desarrollo Web Profesional">
+  <meta property="og:description" content="Tu negocio, siempre online. Diseño y desarrollo web profesional.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#02050d;
+      --bg2:#050b18;
+      --panel:rgba(9,18,35,.72);
+      --panel2:rgba(10,25,48,.82);
+      --line:rgba(63,176,255,.25);
+      --blue:#09a8ff;
+      --blue2:#006cff;
+      --cyan:#42d9ff;
+      --white:#f6fbff;
+      --muted:#9cb0c7;
+      --green:#25d366;
+      --shadow:0 24px 80px rgba(0,0,0,.45);
+      --radius:28px;
+      --max:1240px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%,rgba(0,115,255,.20),transparent 28%),
+        radial-gradient(circle at 90% 20%,rgba(0,210,255,.12),transparent 26%),
+        linear-gradient(180deg,#02050d 0%,#030916 42%,#02050d 100%);
+      color:var(--white);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    body:before{
+      content:"";
+      position:fixed;inset:0;pointer-events:none;z-index:-1;
+      background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+      background-size:72px 72px;
+      mask-image:linear-gradient(to bottom,black,transparent 75%);
+    }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    img{max-width:100%;display:block}
+
+    .container{width:min(var(--max),92%);margin:auto}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;
+      color:#a8dfff;font-size:.78rem;font-weight:800;
+      letter-spacing:.18em;text-transform:uppercase;
+      border:1px solid var(--line);background:rgba(8,35,66,.55);
+      padding:9px 14px;border-radius:999px;backdrop-filter:blur(12px);
+    }
+    .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 18px var(--cyan)}
+    .section{padding:110px 0;position:relative}
+    .section-head{max-width:760px;margin-bottom:52px}
+    .section-head h2{font-family:Orbitron,sans-serif;font-size:clamp(2rem,4vw,3.5rem);line-height:1.08;margin:15px 0}
+    .section-head h2 span{color:var(--cyan);text-shadow:0 0 25px rgba(66,217,255,.25)}
+    .section-head p{color:var(--muted);font-size:1.05rem}
+
+    /* HEADER */
+    header{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background:rgba(2,5,13,.72);backdrop-filter:blur(20px);
+      border-bottom:1px solid rgba(66,217,255,.12);
+    }
+    .nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .brand{display:flex;align-items:center;gap:13px;min-width:245px}
+    .brand-logo{
+      width:58px;height:58px;object-fit:cover;border-radius:50%;
+      border:1px solid rgba(255,255,255,.25);
+      box-shadow:0 0 28px rgba(0,140,255,.22);
+      background:#fff;
+    }
+    .brand-copy{line-height:1.05}
+    .brand-name{
+      display:block;font-family:Orbitron,sans-serif;font-size:.93rem;font-weight:800;letter-spacing:.09em;
+    }
+    .brand-sub{
+      display:block;color:var(--cyan);font-size:.62rem;letter-spacing:.28em;margin-top:5px;font-weight:700;
+    }
+    nav{display:flex;align-items:center;gap:7px}
+    nav a{
+      color:#b9c9db;padding:10px 13px;border-radius:10px;font-size:.87rem;font-weight:600;
+      transition:.25s;
+    }
+    nav a:hover{color:#fff;background:rgba(22,103,180,.18)}
+    .nav-cta{
+      border:1px solid rgba(66,217,255,.35)!important;color:#fff!important;
+      background:linear-gradient(135deg,rgba(0,115,255,.25),rgba(0,210,255,.08));
+      box-shadow:inset 0 0 20px rgba(0,180,255,.05)
+    }
+    .menu-btn{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer}
+
+    /* HERO */
+    .hero{min-height:100vh;padding:150px 0 90px;display:flex;align-items:center;position:relative}
+    .hero:after{
+      content:"";position:absolute;left:8%;right:8%;bottom:0;height:1px;
+      background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:.55;
+    }
+    .hero-grid{display:grid;grid-template-columns:1fr 1.04fr;gap:55px;align-items:center}
+    .hero h1{
+      font-family:Orbitron,sans-serif;font-size:clamp(3rem,6.2vw,6rem);
+      line-height:.98;letter-spacing:-.05em;margin:24px 0;
+    }
+    .hero h1 span{color:var(--cyan);text-shadow:0 0 34px rgba(9,168,255,.34)}
+    .hero-copy{font-size:1.18rem;color:#c1d0df;max-width:670px}
+    .hero-copy strong{color:#fff}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin:30px 0}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      border-radius:13px;padding:14px 20px;border:1px solid rgba(255,255,255,.13);
+      cursor:pointer;font-weight:800;transition:.25s;min-height:50px
+    }
+    .btn:hover{transform:translateY(-3px)}
+    .btn-primary{
+      color:#fff;background:linear-gradient(135deg,#0089ff,#0057e8);
+      box-shadow:0 10px 34px rgba(0,115,255,.25),inset 0 1px rgba(255,255,255,.25)
+    }
+    .btn-secondary{background:rgba(255,255,255,.045);color:#e8f5ff;backdrop-filter:blur(12px)}
+    .btn-whatsapp{background:linear-gradient(135deg,#20b95a,#25d366);border-color:rgba(255,255,255,.15);color:#fff}
+    .micro-proof{display:flex;gap:24px;flex-wrap:wrap;color:#8fa5bd;font-size:.82rem}
+    .micro-proof span{display:flex;align-items:center;gap:7px}
+    .micro-proof b{color:#dff7ff}
+
+    /* HERO VISUAL */
+    .visual-stage{position:relative;min-height:590px;display:flex;align-items:center;justify-content:center}
+    .orb{
+      position:absolute;width:440px;height:440px;border-radius:50%;
+      background:radial-gradient(circle,rgba(0,174,255,.18),rgba(0,74,255,.06) 45%,transparent 70%);
+      filter:blur(2px);animation:pulse 5s ease-in-out infinite;
+    }
+    .beam{position:absolute;width:115%;height:2px;background:linear-gradient(90deg,transparent,#11caff,transparent);transform:rotate(-13deg);box-shadow:0 0 25px #00b7ff;opacity:.45}
+    .device{
+      position:relative;width:min(650px,100%);filter:drop-shadow(0 35px 45px rgba(0,0,0,.65));
+      transform:perspective(1100px) rotateY(-7deg) rotateX(2deg);
+    }
+    .laptop{
+      position:relative;background:#090d14;border-radius:22px 22px 12px 12px;padding:10px 10px 13px;
+      border:1px solid #3d536c;box-shadow:0 0 0 1px rgba(255,255,255,.04),0 0 60px rgba(0,155,255,.16)
+    }
+    .laptop-screen{
+      aspect-ratio:16/10;border-radius:13px;overflow:hidden;position:relative;
+      background:#07101f url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=90') center/cover;
+      border:1px solid rgba(77,193,255,.35)
+    }
+    .screen-ui{position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,9,20,.48),rgba(3,9,20,.86))}
+    .screen-nav{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;font-size:10px;color:#d9efff}
+    .screen-logo{display:flex;align-items:center;gap:8px;font-weight:800}
+    .screen-logo img{width:24px;height:24px;border-radius:50%;background:#fff}
+    .screen-links{display:flex;gap:15px;opacity:.85}
+    .screen-hero{padding:45px 55px}
+    .screen-hero h3{font-family:Orbitron;font-size:32px;line-height:1.05;max-width:360px}
+    .screen-hero h3 span{color:#26c9ff}
+    .screen-hero p{font-size:11px;color:#bdd0e1;max-width:340px;margin:14px 0}
+    .screen-button{display:inline-block;background:#087cff;padding:9px 14px;border-radius:7px;font-size:9px;font-weight:800}
+    .screen-cards{position:absolute;right:25px;bottom:22px;display:flex;gap:8px}
+    .mini-panel{width:90px;height:52px;border:1px solid rgba(71,202,255,.35);background:rgba(8,30,57,.72);border-radius:8px;padding:8px}
+    .mini-panel div{height:4px;border-radius:5px;background:#159cff;margin-bottom:6px}
+    .mini-panel div:nth-child(2){width:65%;opacity:.65}.mini-panel div:nth-child(3){width:82%;opacity:.4}
+    .laptop-base{height:18px;width:108%;margin-left:-4%;background:linear-gradient(#65788d,#1e2b3b);clip-path:polygon(4% 0,96% 0,100% 100%,0 100%);border-radius:0 0 16px 16px}
+    .phone{
+      position:absolute;left:-20px;bottom:25px;width:160px;aspect-ratio:9/18.8;border-radius:28px;
+      background:#05070c;border:6px solid #263548;box-shadow:0 25px 50px rgba(0,0,0,.6),0 0 30px rgba(0,172,255,.25);
+      transform:rotate(-8deg)
+    }
+    .phone-screen{
+      position:absolute;inset:5px;border-radius:21px;overflow:hidden;
+      background:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=90') center/cover;
+    }
+    .phone-screen:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,9,22,.45),rgba(1,9,22,.9))}
+    .phone-ui{position:absolute;z-index:2;inset:0;padding:22px 12px;color:#fff}
+    .phone-ui .dot{width:8px;height:8px;border-radius:50%;background:#27d6ff;box-shadow:0 0 12px #27d6ff;margin-bottom:70px}
+    .phone-ui h4{font-family:Orbitron;font-size:16px;line-height:1.1}
+    .phone-ui p{font-size:8px;color:#c5d5e6;margin:8px 0}
+    .phone-ui span{display:inline-block;background:#007eff;padding:7px 9px;border-radius:7px;font-size:7px;font-weight:800}
+    .floating-tag{
+      position:absolute;right:-18px;top:58px;padding:12px 15px;border:1px solid rgba(66,217,255,.35);
+      background:rgba(5,19,38,.75);backdrop-filter:blur(14px);border-radius:14px;box-shadow:var(--shadow);
+      font-size:.72rem;font-weight:800;letter-spacing:.06em
+    }
+    .floating-tag strong{display:block;color:#fff;font-size:.9rem}.floating-tag span{color:#55d9ff}
+    @keyframes pulse{50%{transform:scale(1.08);opacity:.75}}
+
+    /* STATS */
+    .stats{padding:20px 0 0}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .stat{
+      padding:18px;border:1px solid rgba(71,193,255,.16);background:rgba(8,20,38,.58);border-radius:18px;
+      backdrop-filter:blur(12px)
+    }
+    .stat b{font-family:Orbitron;color:#fff;font-size:1.1rem}.stat span{display:block;color:#7f96ad;font-size:.76rem;margin-top:3px}
+
+    /* SERVICES */
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service{
+      position:relative;min-height:265px;padding:27px;border-radius:var(--radius);
+      background:linear-gradient(145deg,rgba(13,32,58,.85),rgba(4,10,20,.76));
+      border:1px solid rgba(73,187,255,.18);overflow:hidden;box-shadow:var(--shadow);
+      transition:.3s
+    }
+    .service:hover{transform:translateY(-7px);border-color:rgba(73,205,255,.48);box-shadow:0 25px 80px rgba(0,107,255,.14)}
+    .service:before{content:"";position:absolute;right:-40px;top:-60px;width:170px;height:170px;border-radius:50%;background:rgba(0,159,255,.1);filter:blur(12px)}
+    .service-art{height:85px;display:flex;align-items:center}
+    .art-orb{width:66px;height:66px;border-radius:19px;display:grid;place-items:center;border:1px solid rgba(77,208,255,.35);background:linear-gradient(145deg,rgba(0,145,255,.22),rgba(4,17,34,.9));box-shadow:0 0 35px rgba(0,145,255,.14)}
+    .service svg{width:35px;height:35px;stroke:#49d7ff}
+    .service h3{font-family:Orbitron;font-size:1.02rem;margin-bottom:9px}
+    .service p{color:var(--muted);font-size:.9rem}
+
+    /* PRODUCTS */
+    .product-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .product{
+      position:relative;overflow:hidden;border-radius:32px;border:1px solid rgba(71,193,255,.22);
+      background:linear-gradient(145deg,rgba(11,30,54,.9),rgba(3,8,17,.92));box-shadow:var(--shadow)
+    }
+    .product-media{height:285px;position:relative;overflow:hidden;background:#06101e}
+    .product-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(1.05);opacity:.75}
+    .product-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,6,14,.08),rgba(1,7,16,.95))}
+    .product-badge{position:absolute;top:18px;left:18px;z-index:2;padding:8px 12px;border-radius:999px;background:rgba(3,13,26,.78);border:1px solid rgba(76,205,255,.35);font-size:.7rem;font-weight:800;letter-spacing:.12em}
+    .product-body{padding:30px}
+    .product-body h3{font-family:Orbitron;font-size:1.65rem;margin-bottom:7px}
+    .product-body h3 span{color:var(--cyan)}
+    .product-price{font-family:Orbitron;font-size:1.9rem;color:#fff;margin:17px 0 2px}
+    .product-price small{font-family:Inter;color:#8fa7bf;font-size:.75rem;font-weight:600}
+    .product-note{color:#7f97af;font-size:.77rem;margin-bottom:20px}
+    .features{list-style:none;display:grid;gap:9px;margin-bottom:24px}
+    .features li{color:#c5d5e4;font-size:.87rem;display:flex;gap:9px}
+    .features li:before{content:"✓";color:#41d6ff;font-weight:900}
+    .product-explain{border-left:2px solid #078fff;padding:12px 0 12px 15px;color:#9eb2c7;font-size:.84rem;background:rgba(0,115,255,.035);margin-bottom:22px}
+
+    /* COMBO */
+    .combo{
+      display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;align-items:center;
+      padding:38px;border-radius:34px;border:1px solid rgba(73,202,255,.24);
+      background:
+        radial-gradient(circle at 75% 25%,rgba(0,175,255,.18),transparent 25%),
+        linear-gradient(145deg,rgba(8,26,49,.92),rgba(2,7,15,.95));
+      box-shadow:var(--shadow);overflow:hidden
+    }
+    .combo h2{font-family:Orbitron;font-size:clamp(2rem,4vw,3.4rem);line-height:1.05;margin:16px 0}
+    .combo p{color:var(--muted);max-width:510px}
+    .combo-stage{min-height:350px;position:relative}
+    .combo-card{
+      position:absolute;width:230px;padding:18px;border-radius:22px;border:1px solid rgba(80,208,255,.3);
+      background:linear-gradient(145deg,rgba(15,44,75,.9),rgba(3,10,20,.92));backdrop-filter:blur(12px);
+      box-shadow:0 25px 60px rgba(0,0,0,.4)
+    }
+    .combo-card:nth-child(1){left:5%;top:5%;transform:rotate(-7deg)}
+    .combo-card:nth-child(2){right:3%;top:20%;transform:rotate(8deg)}
+    .combo-card:nth-child(3){left:18%;bottom:3%;transform:rotate(4deg)}
+    .combo-card .big-icon{font-family:Orbitron;font-size:2.3rem;color:#39d5ff;text-shadow:0 0 20px rgba(39,211,255,.4)}
+    .combo-card b{display:block;margin-top:8px}.combo-card small{color:#829ab2}
+
+    /* DEMOS */
+    .demo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .demo{
+      border-radius:24px;overflow:hidden;background:#06101d;border:1px solid rgba(72,190,255,.18);transition:.3s
+    }
+    .demo:hover{transform:translateY(-6px);border-color:rgba(72,190,255,.45)}
+    .demo-img{height:220px;position:relative;overflow:hidden}
+    .demo-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+    .demo:hover img{transform:scale(1.05)}
+    .demo-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(1,5,12,.92))}
+    .demo-type{position:absolute;left:15px;top:15px;padding:7px 10px;border-radius:999px;background:rgba(1,8,18,.8);border:1px solid rgba(255,255,255,.14);font-size:.65rem;font-weight:800;letter-spacing:.12em}
+    .demo-content{padding:18px}.demo-content h3{font-family:Orbitron;font-size:1rem}.demo-content p{font-size:.8rem;color:#8ea5bc;margin:6px 0 14px}
+    .demo-actions{display:flex;gap:8px}.demo-actions .btn{padding:9px 12px;min-height:40px;font-size:.75rem}
+
+    /* RESTAURANT */
+    .restaurant{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:stretch}
+    .restaurant-visual{min-height:450px;border-radius:30px;overflow:hidden;position:relative;border:1px solid rgba(80,204,255,.2)}
+    .restaurant-visual img{width:100%;height:100%;object-fit:cover}
+    .restaurant-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,7,14,.82),rgba(2,7,14,.18))}
+    .restaurant-copy{position:absolute;left:34px;top:50%;transform:translateY(-50%);max-width:470px;z-index:2}
+    .restaurant-copy h3{font-family:Orbitron;font-size:2.2rem;line-height:1.08}
+    .restaurant-copy p{color:#b8c9d9;margin:14px 0 20px}
+    .restaurant-panel{padding:34px;border-radius:30px;background:linear-gradient(145deg,rgba(11,29,50,.9),rgba(3,9,17,.95));border:1px solid rgba(74,192,255,.2)}
+    .restaurant-panel h3{font-family:Orbitron;margin-bottom:16px}.restaurant-list{list-style:none;display:grid;gap:13px}
+    .restaurant-list li{display:flex;gap:10px;color:#b7c9d9;font-size:.9rem}.restaurant-list b{color:#48d9ff}
+
+    /* AI */
+    .ai-shell{display:grid;grid-template-columns:.8fr 1.2fr;gap:25px}
+    .ai-intro,.chat{border:1px solid rgba(74,202,255,.22);border-radius:30px;background:linear-gradient(145deg,rgba(10,29,51,.9),rgba(3,9,18,.95));box-shadow:var(--shadow)}
+    .ai-intro{padding:34px}.ai-intro h3{font-family:Orbitron;font-size:2rem;line-height:1.1;margin:16px 0}.ai-intro p{color:var(--muted)}
+    .ai-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}.ai-pills button{border:1px solid rgba(71,190,255,.2);background:rgba(0,123,255,.06);color:#a9c1d7;border-radius:999px;padding:8px 11px;cursor:pointer;font-size:.75rem}
+    .chat{overflow:hidden;display:flex;flex-direction:column;min-height:540px}
+    .chat-head{display:flex;align-items:center;gap:13px;padding:19px 22px;border-bottom:1px solid rgba(255,255,255,.07)}
+    .ai-avatar{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#008fff,#00cfff);font-family:Orbitron;font-weight:800;box-shadow:0 0 25px rgba(0,175,255,.3)}
+    .chat-head b{display:block}.chat-head small{color:#52dfff}.chat-body{padding:20px;height:330px;overflow:auto;display:grid;align-content:start;gap:10px}
+    .msg{max-width:82%;padding:11px 14px;border-radius:15px;font-size:.83rem;line-height:1.5}
+    .msg.bot{background:rgba(21,54,82,.6);border:1px solid rgba(73,192,255,.12);color:#d3e2ee;border-top-left-radius:5px}
+    .msg.user{justify-self:end;background:linear-gradient(135deg,#007eff,#0058dc);border-top-right-radius:5px}
+    .chat-input{display:flex;gap:9px;padding:15px;border-top:1px solid rgba(255,255,255,.07)}
+    .chat-input input{flex:1;background:#050c17;border:1px solid rgba(76,189,255,.2);border-radius:12px;padding:12px;color:#fff;outline:none}
+    .chat-input button{width:48px;border:0;border-radius:12px;background:#087dff;color:#fff;cursor:pointer}
+
+    /* FAQ */
+    .faq{max-width:900px;margin:auto;display:grid;gap:10px}
+    details{background:rgba(7,19,34,.7);border:1px solid rgba(75,190,255,.15);border-radius:17px;padding:17px 20px}
+    summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:20px}
+    summary::-webkit-details-marker{display:none} summary:after{content:"+";color:#45d8ff;font-size:1.2rem}
+    details[open] summary:after{content:"−"} details p{color:#91a7bd;margin-top:12px;font-size:.9rem}
+
+    /* CONTACT */
+    .contact{
+      text-align:center;padding:75px 25px;border-radius:36px;
+      background:
+        radial-gradient(circle at 50% 0%,rgba(0,177,255,.2),transparent 42%),
+        linear-gradient(145deg,rgba(9,28,51,.94),rgba(2,8,16,.98));
+      border:1px solid rgba(73,204,255,.25);box-shadow:var(--shadow)
+    }
+    .contact h2{font-family:Orbitron;font-size:clamp(2.2rem,5vw,4rem);line-height:1.05;margin:16px auto;max-width:850px}
+    .contact h2 span{color:#43d9ff}.contact p{color:#9db3c9;max-width:650px;margin:0 auto 28px}
+    .contact-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+
+    /* FOOTER */
+    footer{padding:55px 0 30px;border-top:1px solid rgba(255,255,255,.06)}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+    .footer-brand .brand{margin-bottom:16px}.footer-brand p{color:#8298af;max-width:460px;font-size:.86rem}
+    .footer-col h4{font-family:Orbitron;font-size:.85rem;margin-bottom:15px}.footer-col a{display:block;color:#8198b0;font-size:.84rem;margin:8px 0}.footer-col a:hover{color:#43d9ff}
+    .footer-bottom{display:flex;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.06);margin-top:35px;padding-top:20px;color:#60778f;font-size:.75rem}
+
+    /* FLOATING */
+    .float-wa{
+      position:fixed;right:22px;bottom:22px;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;
+      background:#25d366;color:#fff;z-index:900;box-shadow:0 12px 35px rgba(37,211,102,.32);border:2px solid rgba(255,255,255,.2);
+      transition:.25s
+    }
+    .float-wa:hover{transform:scale(1.08)}
+    .float-wa svg{width:30px}
+
+    /* MODAL */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px;z-index:2000}
+    .modal.open{display:flex}
+    .modal-box{width:min(760px,100%);max-height:90vh;overflow:auto;background:#07111f;border:1px solid rgba(73,202,255,.3);border-radius:28px;box-shadow:0 35px 100px #000;padding:26px;position:relative}
+    .modal-close{position:absolute;right:17px;top:14px;background:none;border:0;color:#fff;font-size:1.7rem;cursor:pointer}
+    .modal-box img{width:100%;height:300px;object-fit:cover;border-radius:18px;margin-bottom:20px}
+    .modal-box h3{font-family:Orbitron;font-size:1.5rem}.modal-box p{color:#9fb2c6;margin:8px 0 18px}
+    .modal-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+    .reveal{opacity:0;transform:translateY(22px);transition:.75s ease}.reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:1050px){
+      nav a{padding:9px 8px;font-size:.78rem}.hero-grid{gap:25px}.visual-stage{min-height:500px}
+      .service-grid,.demo-grid{grid-template-columns:repeat(2,1fr)}
+      .combo,.restaurant,.ai-shell{grid-template-columns:1fr}
+    }
+    @media(max-width:820px){
+      .nav{height:74px}.brand{min-width:0}.brand-copy{display:none}.brand-logo{width:52px;height:52px}
+      .menu-btn{display:block}.nav-links{display:none;position:absolute;top:74px;left:4%;right:4%;padding:12px;background:rgba(3,9,18,.97);border:1px solid rgba(71,190,255,.2);border-radius:18px;flex-direction:column;align-items:stretch}
+      .nav-links.open{display:flex}.nav-links a{padding:13px}.nav-cta{margin-top:4px}
+      .hero{padding-top:125px}.hero-grid{grid-template-columns:1fr}.hero h1{font-size:clamp(2.7rem,11vw,4.6rem)}
+      .visual-stage{min-height:470px}.device{width:92%}.phone{width:130px;left:-5px}.floating-tag{right:-5px}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .product-grid{grid-template-columns:1fr}.service-grid,.demo-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .footer-bottom{flex-direction:column}
+    }
+    @media(max-width:560px){
+      .section{padding:78px 0}.hero-actions .btn{width:100%}.micro-proof{gap:11px;display:grid}
+      .visual-stage{min-height:365px}.screen-hero{padding:30px 30px}.screen-hero h3{font-size:22px}.screen-links{display:none}
+      .phone{width:102px;border-width:4px;border-radius:21px}.phone-ui{padding:15px 9px}.phone-ui .dot{margin-bottom:48px}.phone-ui h4{font-size:12px}
+      .floating-tag{top:20px;font-size:.6rem}.stats-grid{grid-template-columns:1fr 1fr}.stat{padding:14px}
+      .product-body{padding:23px}.combo{padding:25px}.combo-stage{min-height:330px}.combo-card{width:190px}
+      .restaurant-copy{left:22px;right:22px}.restaurant-copy h3{font-size:1.7rem}
+      .footer-grid{grid-template-columns:1fr}.contact{padding:55px 20px}
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#inicio" aria-label="All In Digital Solutions - Inicio">
+      <img class="brand-logo" src="assets/logo-original.jpeg" alt="Logotipo original All In Digital Solutions">
+      <span class="brand-copy">
+        <span class="brand-name">ALL IN DIGITAL</span>
+        <span class="brand-sub">SOLUTIONS</span>
+      </span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#planes">Planes</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#asistente">Asistente IA</a>
+      <a class="nav-cta" href="https://wa.me/5491123790128?text=Hola%20All%20In%20Digital%20Solutions%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20web%20para%20mi%20negocio." target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <span class="eyebrow"><i></i> Diseño & Desarrollo Web Profesional</span>
+        <h1>Tu negocio,<br><span>siempre online.</span></h1>
+        <p class="hero-copy">
+          Potenciamos tu marca con <strong>sitios web a medida</strong>, modernos y profesionales.
+          Diseñamos experiencias digitales pensadas para mostrar lo mejor de tu negocio y facilitar el contacto con tus clientes.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#planes">Ver planes →</a>
+          <a class="btn btn-whatsapp" href="https://wa.me/5491123790128?text=Hola%20All%20In%20Digital%20Solutions%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20web%20para%20mi%20negocio." target="_blank" rel="noopener">
+            <span>◉</span> Consultar por WhatsApp
+          </a>
+        </div>
+
+        <div class="micro-proof">
+          <span>✓ <b>Responsive</b> en celular, tablet y PC</span>
+          <span>✓ <b>Dominio .com</b> primer año incluido</span>
+          <span>✓ <b>Desde US$100</b></span>
+        </div>
+      </div>
+
+      <div class="visual-stage reveal">
+        <div class="orb"></div><div class="beam"></div>
+        <div class="device">
+          <div class="laptop">
+            <div class="laptop-screen">
+              <div class="screen-ui">
+                <div class="screen-nav">
+                  <div class="screen-logo">
+                    <img src="assets/logo-original.jpeg" alt="">
+                    <span>ALL IN DIGITAL</span>
+                  </div>
+                  <div class="screen-links"><span>Inicio</span><span>Servicios</span><span>Planes</span><span>Contacto</span></div>
+                </div>
+                <div class="screen-hero">
+                  <h3>Experiencias digitales que <span>impulsan tu negocio.</span></h3>
+                  <p>Sitios web profesionales, rápidos y optimizados para crecer contigo.</p>
+                  <span class="screen-button">Solicitá tu presupuesto</span>
+                </div>
+                <div class="screen-cards"><div class="mini-panel"><div></div><div></div><div></div></div><div class="mini-panel"><div></div><div></div><div></div></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="laptop-base"></div>
+
+          <div class="phone">
+            <div class="phone-screen"></div>
+            <div class="phone-ui">
+              <div class="dot"></div>
+              <h4>Tu negocio,<br><span style="color:#35d7ff">siempre online.</span></h4>
+              <p>Diseño web profesional que genera resultados.</p>
+              <span>Solicitá presupuesto</span>
+            </div>
+          </div>
+
+          <div class="floating-tag"><strong>WEB EXPERIENCE</strong><span>Diseño premium · 100% responsive</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container stats-grid reveal">
+      <div class="stat"><b>US$100+</b><span>Desarrollo web desde</span></div>
+      <div class="stat"><b>US$30/mes+</b><span>Mantenimiento mensual desde</span></div>
+      <div class="stat"><b>.COM</b><span>Primer año incluido</span></div>
+      <div class="stat"><b>100%</b><span>Responsive</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="servicios">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow"><i></i> Lo que hacemos</span>
+        <h2>Construimos tu <span>presencia digital.</span></h2>
+        <p>No se trata solamente de tener una página. Se trata de presentar tu negocio de una manera que genere confianza desde el primer vistazo.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service reveal">
+          <div class="service-art"><div class="art-orb">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div></div>
+          <h3>DISEÑO WEB</h3><p>Sitios modernos y profesionales adaptados a la identidad visual de cada negocio.</p>
+        </article>
+
+        <article class="service reveal">
+          <div class="service-art"><div class="art-orb">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l2.2 5.1L20 10l-5.8 1.9L12 17l-2.2-5.1L4 10l5.8-1.9L12 3z"/><path d="M19 16l.9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16z"/></svg>
+          </div></div>
+          <h3>DESARROLLO A MEDIDA</h3><p>Construimos soluciones según las necesidades reales, sin obligarte a encajar en una plantilla.</p>
+        </article>
+
+        <article class="service reveal">
+          <div class="service-art"><div class="art-orb">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 5h4M10 18h4"/></svg>
+          </div></div>
+          <h3>RESPONSIVE</h3><p>La experiencia se adapta a celulares, tablets y computadoras para que tu negocio se vea bien en cualquier pantalla.</p>
+        </article>
+
+        <article class="service reveal">
+          <div class="service-art"><div class="art-orb">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c2 2.4 3 5.1 3 8s-1 5.6-3 8M12 4c-2 2.4-3 5.1-3 8s1 5.6 3 8"/></svg>
+          </div></div>
+          <h3>DOMINIO .COM</h3><p>Dominio .com incluido durante el primer año en los paquetes correspondientes.</p>
+        </article>
+
+        <article class="service reveal">
+          <div class="service-art"><div class="art-orb">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7v5h-5"/><path d="M4 17v-5h5"/><path d="M19 12a7 7 0 0 0-12-4L4 10M5 12a7 7 0 0 0 12 4l3-2"/></svg>
+          </div></div>
+          <h3>MANTENIMIENTO</h3><p>Actualizamos contenido, precios, promociones, fotografías y otros elementos según la frecuencia que necesite tu negocio.</p>
+        </article>
+
+        <article class="service reveal">
+          <div class="service-art"><div class="art-orb">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M12 4v16"/><circle cx="12" cy="12" r="8"/></svg>
+          </div></div>
+          <h3>INTEGRACIÓN DIGITAL</h3><p>WhatsApp, Instagram, mapas, formularios y otras herramientas que faciliten el contacto.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="planes">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow"><i></i> Soluciones</span>
+        <h2>Dos formas de llevar tu negocio <span>online.</span></h2>
+        <p>El precio se adapta al proyecto. Mostramos valores de entrada para que puedas orientarte sin encerrar cada negocio en un paquete rígido.</p>
+      </div>
+
+      <div class="product-grid">
+        <article class="product reveal">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=90" alt="Espacio de trabajo moderno con computadora para diseño web">
+            <span class="product-badge">PRODUCTO 01 · WEB</span>
+          </div>
+          <div class="product-body">
+            <h3>WEB <span>ESENCIAL</span></h3>
+            <p style="color:#9bb0c5">Tu presencia digital sin mantenimiento mensual.</p>
+            <div class="product-price">DESDE US$100</div>
+            <p class="product-note">El valor final depende de las características y necesidades del proyecto.</p>
+            <ul class="features">
+              <li>Diseño web profesional</li><li>Diseño responsive</li><li>Adaptación a celular, tablet y PC</li>
+              <li>Dominio .com incluido durante el primer año</li><li>Botón directo de WhatsApp</li><li>Integración con Instagram</li><li>Secciones personalizadas</li><li>Publicación del sitio</li>
+            </ul>
+            <div class="product-explain">Ideal para profesionales, emprendimientos y negocios cuya información cambia poco. Al no requerir modificaciones frecuentes, puede ser una opción más económica.</div>
+            <a class="btn btn-primary" style="width:100%" href="https://wa.me/5491123790128?text=Hola%2C%20quiero%20consultar%20por%20el%20plan%20Web%20Esencial." target="_blank" rel="noopener">Consultar Web Esencial →</a>
+          </div>
+        </article>
+
+        <article class="product reveal">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=90" alt="Equipo trabajando con tecnología y actualización digital">
+            <span class="product-badge">PRODUCTO 02 · EVOLUTIVO</span>
+          </div>
+          <div class="product-body">
+            <h3>WEB + <span>MANTENIMIENTO</span></h3>
+            <p style="color:#9bb0c5">Tu página evoluciona junto con tu negocio.</p>
+            <div class="product-price">DESDE US$100 <small>desarrollo</small></div>
+            <div style="color:#45d8ff;font-weight:800;margin-bottom:3px">Mantenimiento desde US$30 / mes</div>
+            <p class="product-note">El valor final depende de la cantidad y frecuencia de actualizaciones.</p>
+            <ul class="features">
+              <li>Diseño web profesional</li><li>Responsive</li><li>Dominio .com incluido durante el primer año</li>
+              <li>WhatsApp e Instagram</li><li>Actualizaciones periódicas</li><li>Cambios de contenido</li><li>Soporte y mantenimiento</li><li>Optimización continua</li>
+            </ul>
+            <div class="product-explain">Ideal para restaurantes, tiendas y negocios que cambian precios, productos, promociones, fotografías o información con frecuencia.</div>
+            <a class="btn btn-whatsapp" style="width:100%" href="https://wa.me/5491123790128?text=Hola%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20web%20con%20mantenimiento." target="_blank" rel="noopener">Consultar Web + Mantenimiento →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="combo reveal">
+        <div>
+          <span class="eyebrow"><i></i> Combo digital</span>
+          <h2>Todo lo que tu negocio necesita para <span style="color:#45d8ff">estar online.</span></h2>
+          <p>Una experiencia pensada como un producto completo: web, dominio, contacto directo, redes sociales y, cuando lo necesitás, mantenimiento.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#portfolio">Ver ejemplos</a>
+            <a class="btn btn-secondary" href="https://instagram.com/allindigital_ar" target="_blank" rel="noopener">Instagram @allindigital_ar</a>
+          </div>
+        </div>
+        <div class="combo-stage">
+          <div class="combo-card"><div class="big-icon">WEB</div><b>Diseño profesional</b><small>Experiencia visual a medida</small></div>
+          <div class="combo-card"><div class="big-icon">.COM</div><b>Dominio incluido</b><small>Primer año en paquetes correspondientes</small></div>
+          <div class="combo-card"><div class="big-icon">↻</div><b>Mantenimiento</b><small>Actualizaciones según necesidad</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow"><i></i> Inspiración</span>
+        <h2>Imaginá tu negocio <span>así.</span></h2>
+        <p>Estos son proyectos DEMO para mostrar cómo puede verse una web profesional en distintos nichos. No representan clientes reales.</p>
+      </div>
+
+      <div class="demo-grid">
+        <article class="demo reveal">
+          <div class="demo-img">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=90" alt="Demo de sitio web para restaurante">
+            <div class="demo-overlay"></div><span class="demo-type">PROYECTO DEMO</span>
+          </div>
+          <div class="demo-content"><h3>RESTAURANTE</h3><p>Menú, precios, horarios, ubicación, promociones y WhatsApp.</p><div class="demo-actions"><button class="btn btn-primary demo-open" data-title="Demo Restaurante" data-img="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=90" data-desc="Una web gastronómica puede mostrar el menú, precios, horarios, ubicación, fotografías, promociones y contacto directo por WhatsApp. Con mantenimiento, esos datos pueden actualizarse semanalmente.">Ver demo</button><a class="btn btn-secondary" href="https://wa.me/5491123790128?text=Hola%2C%20tengo%20un%20restaurante%20y%20quiero%20consultar%20por%20una%20p%C3%A1gina%20web." target="_blank" rel="noopener">Consultar</a></div></div>
+        </article>
+
+        <article class="demo reveal">
+          <div class="demo-img">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1400&q=90" alt="Demo de sitio web para barbería">
+            <div class="demo-overlay"></div><span class="demo-type">PROYECTO DEMO</span>
+          </div>
+          <div class="demo-content"><h3>BARBERÍA</h3><p>Servicios, galería, horarios, ubicación y contacto.</p><div class="demo-actions"><button class="btn btn-primary demo-open" data-title="Demo Barbería" data-img="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1400&q=90" data-desc="Una web para barbería puede presentar servicios, precios, fotografías, horarios, ubicación y un botón de WhatsApp para consultas o turnos.">Ver demo</button><a class="btn btn-secondary" href="https://wa.me/5491123790128?text=Hola%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20web%20para%20mi%20barber%C3%ADa." target="_blank" rel="noopener">Consultar</a></div></div>
+        </article>
+
+        <article class="demo reveal">
+          <div class="demo-img">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=90" alt="Demo de tienda online">
+            <div class="demo-overlay"></div><span class="demo-type">PROYECTO DEMO</span>
+          </div>
+          <div class="demo-content"><h3>TIENDA</h3><p>Productos, categorías, promociones y canales de contacto.</p><div class="demo-actions"><button class="btn btn-primary demo-open" data-title="Demo Tienda" data-img="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=90" data-desc="Una tienda puede usar una web para presentar productos, categorías, promociones y formas de contacto. Si el catálogo cambia con frecuencia, el mantenimiento puede ser especialmente útil.">Ver demo</button><a class="btn btn-secondary" href="https://wa.me/5491123790128?text=Hola%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20web%20para%20mi%20tienda." target="_blank" rel="noopener">Consultar</a></div></div>
+        </article>
+
+        <article class="demo reveal">
+          <div class="demo-img">
+            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=90" alt="Demo de sitio web para empresa">
+            <div class="demo-overlay"></div><span class="demo-type">PROYECTO DEMO</span>
+          </div>
+          <div class="demo-content"><h3>EMPRESA</h3><p>Presentación corporativa, servicios, equipo y contacto.</p><div class="demo-actions"><button class="btn btn-primary demo-open" data-title="Demo Empresa" data-img="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=90" data-desc="Una web corporativa puede presentar la empresa, servicios, equipo, proyectos, valores y canales de contacto con una imagen profesional.">Ver demo</button><a class="btn btn-secondary" href="https://wa.me/5491123790128?text=Hola%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20web%20para%20mi%20empresa." target="_blank" rel="noopener">Consultar</a></div></div>
+        </article>
+
+        <article class="demo reveal">
+          <div class="demo-img">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=90" alt="Demo de portfolio profesional">
+            <div class="demo-overlay"></div><span class="demo-type">PROYECTO DEMO</span>
+          </div>
+          <div class="demo-content"><h3>PROFESIONAL</h3><p>Portfolio, servicios, experiencia y contacto.</p><div class="demo-actions"><button class="btn btn-primary demo-open" data-title="Demo Profesional" data-img="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=90" data-desc="Profesionales independientes pueden usar su web como una carta de presentación: servicios, experiencia, portfolio, ubicación y contacto directo.">Ver demo</button><a class="btn btn-secondary" href="https://wa.me/5491123790128?text=Hola%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20web%20profesional." target="_blank" rel="noopener">Consultar</a></div></div>
+        </article>
+
+        <article class="demo reveal">
+          <div class="demo-img">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=90" alt="Demo de emprendimiento digital">
+            <div class="demo-overlay"></div><span class="demo-type">PROYECTO DEMO</span>
+          </div>
+          <div class="demo-content"><h3>EMPRENDIMIENTO</h3><p>Marca, propuesta, servicios y llamada a la acción.</p><div class="demo-actions"><button class="btn btn-primary demo-open" data-title="Demo Emprendimiento" data-img="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=90" data-desc="Un emprendimiento puede comenzar con una web clara y visual que explique qué ofrece, por qué elegirlo y cómo contactar rápidamente.">Ver demo</button><a class="btn btn-secondary" href="https://wa.me/5491123790128?text=Hola%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20web%20para%20mi%20emprendimiento." target="_blank" rel="noopener">Consultar</a></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="restaurant reveal">
+        <div class="restaurant-visual">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=90" alt="Restaurante moderno - ejemplo de proyecto">
+          <div class="restaurant-copy">
+            <span class="eyebrow"><i></i> Ejemplo de nicho</span>
+            <h3>Tu restaurante,<br><span style="color:#45d8ff">siempre actualizado.</span></h3>
+            <p>Menú, precios, fotos, horarios, ubicación, promociones y contacto directo desde una sola experiencia.</p>
+            <a class="btn btn-whatsapp" href="https://wa.me/5491123790128?text=Hola%2C%20tengo%20un%20restaurante%20y%20quiero%20consultar%20por%20una%20p%C3%A1gina%20web." target="_blank" rel="noopener">Consultar para restaurantes</a>
+          </div>
+        </div>
+        <div class="restaurant-panel">
+          <h3>¿Por qué mantenimiento?</h3>
+          <ul class="restaurant-list">
+            <li><b>✓</b><span>Actualizar el <strong>menú</strong> sin rehacer toda la página.</span></li>
+            <li><b>✓</b><span>Modificar <strong>precios</strong> cuando cambian.</span></li>
+            <li><b>✓</b><span>Agregar o quitar <strong>promociones</strong>.</span></li>
+            <li><b>✓</b><span>Reemplazar <strong>fotografías</strong> y novedades.</span></li>
+            <li><b>✓</b><span>Mantener la información <strong>actualizada</strong> para los clientes.</span></li>
+          </ul>
+          <div class="product-explain" style="margin-top:25px;margin-bottom:0">Mantenimiento mensual: <strong style="color:#45d8ff">desde US$30</strong>. El valor depende de la frecuencia y cantidad de actualizaciones.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="asistente">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow"><i></i> Asistente digital</span>
+        <h2>¿No sabés qué web necesita <span>tu negocio?</span></h2>
+        <p>Probá el asistente demo. Puede orientarte sobre beneficios, planes, dominio, responsive y mantenimiento.</p>
+      </div>
+
+      <div class="ai-shell">
+        <div class="ai-intro reveal">
+          <div class="ai-avatar">AI</div>
+          <h3>Tu primer asesor digital.</h3>
+          <p>Este asistente funciona en modo demostración con respuestas predefinidas. La estructura queda preparada para conectar una API de IA real posteriormente.</p>
+          <div class="ai-pills">
+            <button data-q="¿Por qué necesito una página web?">¿Por qué necesito una web?</button>
+            <button data-q="¿Cuánto cuesta?">¿Cuánto cuesta?</button>
+            <button data-q="¿Qué incluye el dominio?">Dominio .com</button>
+            <button data-q="¿Cuál es la diferencia entre mantenimiento y no mantenimiento?">Mantenimiento</button>
+            <button data-q="¿Qué necesita un restaurante?">Restaurante</button>
+          </div>
+        </div>
+
+        <div class="chat reveal">
+          <div class="chat-head"><div class="ai-avatar">AI</div><div><b>Asistente All In Digital Solutions</b><small>Modo demo · listo para responder</small></div></div>
+          <div class="chat-body" id="chatBody">
+            <div class="msg bot">Hola. Soy el asistente de All In Digital Solutions. Preguntame sobre páginas web, precios, dominio, mantenimiento o qué solución puede necesitar tu negocio.</div>
+          </div>
+          <div class="chat-input">
+            <input id="chatInput" type="text" placeholder="Escribí tu consulta..." autocomplete="off">
+            <button id="sendChat" aria-label="Enviar">➤</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow"><i></i> Preguntas frecuentes</span>
+        <h2>Antes de empezar, <span>resolvamos tus dudas.</span></h2>
+      </div>
+
+      <div class="faq reveal">
+        <details><summary>¿Cuánto cuesta una página web?</summary><p>Los proyectos comienzan desde US$100. El valor final depende de la cantidad de secciones, funcionalidades, contenido y necesidades específicas del proyecto.</p></details>
+        <details><summary>¿El dominio .com está incluido?</summary><p>Sí. En los paquetes correspondientes se incluye el dominio .com durante el primer año.</p></details>
+        <details><summary>¿Qué diferencia hay entre una web con y sin mantenimiento?</summary><p>La Web Esencial es ideal para información estable. El mantenimiento mensual sirve para negocios que necesitan actualizar precios, productos, promociones, fotografías u otros contenidos con frecuencia.</p></details>
+        <details><summary>¿La página funciona en celulares?</summary><p>Sí. Diseñamos la experiencia para adaptarse a celulares, tablets y computadoras.</p></details>
+        <details><summary>¿Puedo integrar WhatsApp e Instagram?</summary><p>Sí. Podemos integrar WhatsApp, Instagram, mapas, formularios y otras herramientas según el proyecto.</p></details>
+        <details><summary>¿Cuánto cuesta el mantenimiento?</summary><p>El mantenimiento comienza desde US$30 mensuales. El precio depende de la frecuencia y cantidad de actualizaciones que necesite el negocio.</p></details>
+        <details><summary>¿Cuánto tarda en hacerse?</summary><p>Depende de la complejidad del proyecto y de la información disponible. Antes de comenzar se define el alcance y se acuerda un plazo.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacto">
+    <div class="container">
+      <div class="contact reveal">
+        <span class="eyebrow"><i></i> Hablemos de tu proyecto</span>
+        <h2>Tu próxima web puede empezar con <span>un mensaje.</span></h2>
+        <p>Contanos qué negocio tenés, qué necesitás y qué querés conseguir. Te orientamos y preparamos una propuesta personalizada.</p>
+        <div class="contact-actions">
+          <a class="btn btn-whatsapp" href="https://wa.me/5491123790128?text=Hola%20All%20In%20Digital%20Solutions%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20web%20para%20mi%20negocio." target="_blank" rel="noopener">WhatsApp · +54 11 2379-0128</a>
+          <a class="btn btn-secondary" href="https://instagram.com/allindigital_ar" target="_blank" rel="noopener">@allindigital_ar en Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#inicio">
+          <img class="brand-logo" src="assets/logo-original.jpeg" alt="Logotipo original All In Digital Solutions">
+          <span class="brand-copy"><span class="brand-name">ALL IN DIGITAL</span><span class="brand-sub">SOLUTIONS</span></span>
+        </a>
+        <p>Diseño y desarrollo web profesional. Potenciamos tu negocio con experiencias digitales modernas, adaptadas y pensadas para convertir visitas en oportunidades.</p>
+      </div>
+      <div class="footer-col"><h4>Navegación</h4><a href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a href="#planes">Planes</a><a href="#portfolio">Portfolio</a><a href="#asistente">Asistente IA</a><a href="#contacto">Contacto</a></div>
+      <div class="footer-col"><h4>Contacto</h4><a href="https://wa.me/5491123790128" target="_blank" rel="noopener">WhatsApp: +54 11 2379-0128</a><a href="https://instagram.com/allindigital_ar" target="_blank" rel="noopener">Instagram: @allindigital_ar</a><a href="#planes">Web desde US$100</a><a href="#planes">Mantenimiento desde US$30/mes</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 All In Digital Solutions. Todos los derechos reservados.</span><span>Diseño & Desarrollo Web Profesional</span></div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/5491123790128?text=Hola%20All%20In%20Digital%20Solutions%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20web." target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.7 11.7 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4.1 1.6 5.9L.2 24l6.5-1.7c1.7.9 3.5 1.3 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.3Zm-8.4 18.1c-1.7 0-3.4-.5-4.8-1.3l-.3-.2-3.9 1 1-3.8-.2-.3a9.7 9.7 0 1 1 8.2 4.6Zm5.3-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.6-1.8-1.8-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.3 3.1c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.9.6.8.2 1.5.2 2 .1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3Z"/></svg>
+</a>
+
+<div class="modal" id="demoModal" aria-hidden="true">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Cerrar">×</button>
+    <img id="modalImg" src="" alt="">
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+    <div class="modal-actions">
+      <a id="modalWa" class="btn btn-whatsapp" target="_blank" rel="noopener">Consultar este proyecto →</a>
+      <button class="btn btn-secondary" id="modalClose2">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Project demo modal
+  const modal = document.getElementById('demoModal');
+  const modalImg = document.getElementById('modalImg');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+  const modalWa = document.getElementById('modalWa');
+
+  function openModal(title,img,desc){
+    modalTitle.textContent = title;
+    modalImg.src = img;
+    modalImg.alt = title;
+    modalDesc.textContent = desc;
+    modalWa.href = 'https://wa.me/5491123790128?text=' + encodeURIComponent('Hola, quiero consultar por un proyecto web como el demo "' + title + '".');
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+  document.querySelectorAll('.demo-open').forEach(btn => btn.addEventListener('click', () => openModal(btn.dataset.title,btn.dataset.img,btn.dataset.desc)));
+  document.getElementById('modalClose').addEventListener('click',closeModal);
+  document.getElementById('modalClose2').addEventListener('click',closeModal);
+  modal.addEventListener('click',e => { if(e.target===modal) closeModal(); });
+  document.addEventListener('keydown',e => { if(e.key==='Escape') closeModal(); });
+
+  // Demo AI assistant
+  const chatBody = document.getElementById('chatBody');
+  const chatInput = document.getElementById('chatInput');
+  const sendChat = document.getElementById('sendChat');
+
+  function addMessage(text,type){
+    const div=document.createElement('div');
+    div.className='msg '+type;
+    div.innerHTML=text;
+    chatBody.appendChild(div);
+    chatBody.scrollTop=chatBody.scrollHeight;
+  }
+
+  function botAnswer(input){
+    const q=input.toLowerCase();
+    if(q.includes('precio')||q.includes('cuesta')||q.includes('cuánto')||q.includes('cuanto')){
+      return 'Los proyectos web comienzan desde <strong>US$100</strong>. El valor final depende de las características, secciones y funcionalidades. El mantenimiento mensual comienza desde <strong>US$30</strong>.';
+    }
+    if(q.includes('dominio')||q.includes('.com')){
+      return 'En los paquetes correspondientes incluimos el <strong>dominio .com durante el primer año</strong>.';
+    }
+    if(q.includes('mantenimiento')||q.includes('diferencia')||q.includes('actualizar')){
+      return 'La <strong>Web Esencial</strong> es ideal cuando la información cambia poco. El mantenimiento mensual es útil cuando necesitás actualizar precios, menús, productos, promociones o fotografías con frecuencia.';
+    }
+    if(q.includes('restaurante')||q.includes('menú')||q.includes('menu')){
+      return 'Para un restaurante recomendamos especialmente una web con mantenimiento: permite actualizar <strong>menú, precios, promociones, fotos y horarios</strong> con frecuencia.';
+    }
+    if(q.includes('celular')||q.includes('responsive')||q.includes('móvil')||q.includes('movil')){
+      return 'Sí. El diseño es <strong>responsive</strong>, por lo que se adapta a celulares, tablets y computadoras.';
+    }
+    if(q.includes('whatsapp')||q.includes('contacto')){
+      return 'Sí. Podemos integrar un botón directo a WhatsApp. También podés escribir ahora al <strong>+54 11 2379-0128</strong>.';
+    }
+    if(q.includes('instagram')||q.includes('redes')){
+      return 'Sí. Podemos integrar Instagram y otros canales digitales para que el visitante encuentre fácilmente tus redes y formas de contacto.';
+    }
+    if(q.includes('necesito')||q.includes('beneficio')||q.includes('por qué')||q.includes('porque')){
+      return 'Una web propia te permite presentar tu negocio con más control, explicar tus servicios, mostrar información importante y ofrecer un canal directo de contacto sin depender solamente de una red social.';
+    }
+    return 'Buena consulta. Puedo orientarte sobre <strong>precios, dominio, mantenimiento, responsive, restaurantes, WhatsApp e Instagram</strong>. Si querés un presupuesto personalizado, escribinos por WhatsApp.';
+  }
+
+  function sendMessage(textFromButton){
+    const text=(textFromButton || chatInput.value).trim();
+    if(!text)return;
+    addMessage(text,'user');
+    chatInput.value='';
+    setTimeout(()=>addMessage(botAnswer(text),'bot'),450);
+  }
+  sendChat.addEventListener('click',()=>sendMessage());
+  chatInput.addEventListener('keydown',e=>{if(e.key==='Enter')sendMessage()});
+  document.querySelectorAll('.ai-pills button').forEach(b=>b.addEventListener('click',()=>sendMessage(b.dataset.q)));
+</script>
+</body>
+</html>
